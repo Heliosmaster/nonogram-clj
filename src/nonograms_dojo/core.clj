@@ -24,6 +24,7 @@
   (repeat (first size) (into [] (repeat (second size) :?))))
 
 ;; filling functions
+
 (defn fill-line-completely [hint]
   (into [] (flatten (interpose :_ (mapv (fn [number] (repeat number :X)) hint)))))
 
@@ -34,7 +35,6 @@
 (defn fill-from-end [line number]
   (concat (take (- (count line) (+ number 1)) line) [:_] (repeat number :X)))
 
-;; line utilities
 
 (defn line-complete? [line]
   (contains? line :?))
@@ -50,6 +50,7 @@
                  line)))
 
 (defn starts-with-X? [line]
+
   (= :X (first line)))
 
 (defn ends-with-X? [line]
